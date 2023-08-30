@@ -33,7 +33,7 @@ pipeline{
 
         stage('infra provisioning'){
             steps{
-                sh 'cd terraform'
+                sh 'cd deploy'
                 sh 'terraform init'
                 sh 'terraform apply -auto-approve' 
             }
