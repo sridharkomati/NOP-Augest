@@ -3,7 +3,9 @@ pipeline{
     stages{
         stage('VCS'){
             steps{
-                sh 'git clone https://github.com/nopSolutions/nopCommerce.git'
+                git url: 'https://github.com/sridharkomati/NOP-Augest.git',
+                    branch: 'master'
+
 
             }
         }
