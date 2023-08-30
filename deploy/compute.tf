@@ -62,8 +62,7 @@ resource "aws_instance" "web" {
 
 
   depends_on = [
-    aws_db_instance.empdb,
-    aws_security_group.web
+     aws_security_group.web
   ]
 
 }
