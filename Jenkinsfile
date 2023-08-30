@@ -4,7 +4,7 @@ pipeline{
         stage('VCS'){
             steps{
                 git url: 'https://github.com/sridharkomati/NOP-Augest.git',
-                    branch: 'master'
+                    branch: 'tera'
 
 
             }
