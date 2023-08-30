@@ -17,6 +17,7 @@ pipeline{
             sh 'dotnet build -c Release src/NopCommerce.sln'
             sh 'dotnet publish -c Release src/Presentation/Nop.Web/Nop.Web.csproj -o publish'
             sh 'mkdir publish/bin publish/logs'
+            sh 'sudo apt install zip -y'
             sh 'zip -r nopCommerce.zip publish'
             archive '**/nopCommerce.zip'
           } 
