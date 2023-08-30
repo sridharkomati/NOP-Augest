@@ -43,7 +43,11 @@ data "aws_subnet" "web" {
   filter {
     name   = "tag:Name"
     values = [var.ntier_vpc_info.web_ec2_subnet]
+
   }
+   filter {
+    name   = "vpc-id"
+    values = [aws_vpc.ntier.id]
 
   depends_on = [
     aws_subnet.subnets
