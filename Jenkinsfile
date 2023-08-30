@@ -11,7 +11,6 @@ pipeline{
           steps{
             sh 'sudo apt update'
             sh 'sudo apt upgrade dotnet-sdk-7.0'
-            sh 'git clone https://github.com/CICDProjects/nopCommerceJuly23.git'
             sh 'dotnet restore src/NopCommerce.sln'
             sh 'dotnet build -c Release src/NopCommerce.sln'
             sh 'dotnet publish -c Release src/Presentation/Nop.Web/Nop.Web.csproj -o publish'
