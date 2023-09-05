@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: nop
-          image: sridhar006/nopaugest:${BUILD_ID}
+          image: sridhar006/nopaugest:26
           ports:
             - containerPort: 5000 
                  
