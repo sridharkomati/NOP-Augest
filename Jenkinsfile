@@ -36,7 +36,9 @@ pipeline{
                 sh 'docker push sridhar006/nopaugest:${BUILD_ID}' 
                 
     }
+        }
         stage("kubernetes deployment"){
+           steps{ 
            sh 'kubectl apply -f deployment.yaml'
       }
 
