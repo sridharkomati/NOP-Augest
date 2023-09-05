@@ -57,7 +57,20 @@ resource "aws_security_group" "web" {
       Name = "web2"
     }
 
+  resource "aws_key_pair" "key-pair" {
+  key_name   = "key-gen2"
+  public_key = file("~/.ssh/id_rsa.pub")
+}
+ connection {
+    type        = "ssh"
+    user        = "ubuntu"
+    private_key = file("~/.ssh/id_rsa")
+    host        = aws_instance.web.public_ip
+  }
+  provisioner "remote-exec" {
+  scripts = ["kubectl.sh"]
 
+  }
     depends_on = [
       aws_security_group.web
     ]
