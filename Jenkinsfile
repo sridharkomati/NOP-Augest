@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('VCS'){
             steps{
-                   git credentialsId: 'GIT_HUB_CREDENTIALS'
+                   git credentialsId: 'GIT_HUB_CREDENTIALS',
                        url: 'https://github.com/sridharkomati/NOP-Augest.git',
                        branch: 'tera'
 
