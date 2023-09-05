@@ -12,14 +12,16 @@ pipeline{
         }
         stage('artifact build'){
           steps{
-            sh 'sudo apt update'
-            sh 'sudo apt upgrade dotnet-sdk-7.0 -y'
-            sh 'dotnet restore src/NopCommerce.sln'
-            sh 'dotnet build -c Release src/NopCommerce.sln'
-            sh 'dotnet publish -c Release src/Presentation/Nop.Web/Nop.Web.csproj -o publish'
-            sh 'sudo apt install zip -y'
-            sh 'zip -r nopCommerce.zip publish'
-            archive '**/nopCommerce.zip'
+            // sh 'sudo apt update'
+            // sh 'sudo apt upgrade dotnet-sdk-7.0 -y'
+            // sh 'dotnet restore src/NopCommerce.sln'
+            // sh 'dotnet build -c Release src/NopCommerce.sln'
+            // sh 'dotnet publish -c Release src/Presentation/Nop.Web/Nop.Web.csproj -o publish'
+            // sh 'sudo apt install zip -y'
+            // sh 'zip -r nopCommerce.zip publish'
+            // archive '**/nopCommerce.zip'
+            sh 'docker build . -t sridhar006/nopaugest:${BUILD_ID}'
+            sh 'docker image list'
           } 
         } 
         stage('docker login'){
