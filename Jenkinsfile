@@ -12,7 +12,7 @@ pipeline{
         }
         stage('artifact build'){
           steps{
-            sh 'sudo apt update && sudo apt upgrade '
+            sh 'sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys B53DC80D13EDEF05'
             sh 'sudo apt upgrade dotnet-sdk-7.0 -y'
             sh 'dotnet restore src/NopCommerce.sln'
             sh 'dotnet build -c Release src/NopCommerce.sln'
