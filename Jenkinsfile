@@ -22,11 +22,10 @@ pipeline{
             archive '**/nopCommerce.zip'
           } 
         } 
-        withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD',
-         variable: 'PASSWORD')]) {
+        withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD',variable: 'PASSWORD')]) {
          sh 'docker login -u sridhar006 -p $PASSWORD'  
          }
-        stage('docker image build'){
+        stage('docker push image '){
             steps{
                 sh 'docker image build -t nop123 .'
                 sh 'docker image tag nop123 sridhar006/nopaugest:${BUILD_ID}'
